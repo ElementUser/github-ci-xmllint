@@ -21,3 +21,4 @@ jobs:
       uses: ChristophWurst/xmllint-action@v1.1
       with:
         xml-file: ./xml_files/*.entity
+        xml-schema-file: ./info.xsd
