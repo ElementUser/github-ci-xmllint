@@ -15,7 +15,7 @@ jobs:
       run: wget https://apps.nextcloud.com/schema/apps/info.xsd
 
     - name: Enable XML Lint Annotations
-      uses: korelstar/xmllint-problem-matcher@v1
+      uses: korelstar/xmllint-problem-matcher@v1.1.0
 
     - name: XML Lint - apply on entity files
       uses: ChristophWurst/xmllint-action@v1.1
