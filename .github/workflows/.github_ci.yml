@@ -14,7 +14,10 @@ jobs:
     - name: Download schema
       run: wget https://apps.nextcloud.com/schema/apps/info.xsd
 
-    - name: Lint XML entity files
-      uses: ChristophWurst/xmllint-action@v1
+    - name: Enable XML Lint Annotations
+      uses: korelstar/xmllint-problem-matcher@v1
+
+    - name: XML Lint - apply on entity files
+      uses: ChristophWurst/xmllint-action@v1.1
       with:
         xml-file: ./xml_files/*.entity
