@@ -43,7 +43,7 @@ jobs:
 
     - name: Install npm packages
       shell: bash
-      run: npm i --save-dev prettier @prettier/plugin-xml
+      run: npm i -g prettier @prettier/plugin-xml
 
     - name: Run Prettier
       shell: bash
