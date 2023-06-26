@@ -11,10 +11,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Install xmllint locally
-      shell: bash
-      run: |
-        sudo apt -y install libxml2-utils
+    - name: Install & cache packages for linting
+      uses: awalsh128/cache-apt-pkgs-action@latest
+      with:
+        packages: xmllint
+        version: 1.0
 
     - name: Run xmllint on XML entity files
       shell: bash
