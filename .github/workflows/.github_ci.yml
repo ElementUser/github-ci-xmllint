@@ -14,7 +14,7 @@ jobs:
     - name: Install xmllint locally
       shell: bash
       run: |
-        apt -y install libxml2-utils
+        sudo apt -y install libxml2-utils
 
     - name: Run xmllint on XML entity files
       shell: bash
