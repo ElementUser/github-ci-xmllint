@@ -11,6 +11,12 @@ jobs:
     steps:
     - name: Checkout branch
       uses: actions/checkout@v3
+      with:
+        # Make sure the actual branch is checked out when running on pull requests
+        ref: ${{ github.head_ref }}
+        fetch-depth: 0
+        # Make sure the value of GITHUB_TOKEN will not be persisted in repo's config
+        persist-credentials: false
 
     - name: Install & cache packages for linting
       uses: awalsh128/cache-apt-pkgs-action@latest
@@ -19,8 +25,16 @@ jobs:
         version: 1.0
     
     # Reference: https://stackoverflow.com/a/73557633
-    - name: Run xmllint on changed XML files between main branch and Pull Request branch
+    - name: xmllint_pull_request
+      if: ${{ github.event_name == 'pull_request' }}
       shell: bash
-      run:
-        git --no-pager diff --name-only *.{entity,} --diff-filter=ACMRT ${{github.event.pull_request.base.sha}} ${{ github.event.pull_request.head.sha }} | 
+      run: |
+        git diff --name-only *.{entity,} ${{github.head_ref.sha}} ${{ github.sha }} | 
+        xargs xmllint --noout
+
+    - name: xmllint_push
+      if: ${{ github.event_name == 'push' }}
+      shell: bash
+      run: |
+        git diff --name-only *.{entity,} ${{github.event.pull_request.base.sha}} ${{ github.event.pull_request.head.sha }} | 
         xargs xmllint --noout
