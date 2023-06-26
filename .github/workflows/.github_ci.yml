@@ -14,7 +14,7 @@ jobs:
     - name: Install & cache packages for linting
       uses: awalsh128/cache-apt-pkgs-action@latest
       with:
-        packages: xmllint
+        packages: libxml2-utils
         version: 1.0
 
     - name: Run xmllint on XML entity files
