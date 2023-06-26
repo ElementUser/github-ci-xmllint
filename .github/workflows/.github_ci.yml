@@ -29,12 +29,10 @@ jobs:
       if: ${{ github.event_name == 'pull_request' }}
       shell: bash
       run: |
-        git diff --name-only *.{entity,} ${{github.head_ref.sha}} ${{ github.sha }} | 
-        xargs xmllint --noout
+        git diff --name-only *.{entity,} ${{github.head_ref.sha}} ${{ github.sha }} | xargs xmllint --noout
 
     - name: xmllint_push
       if: ${{ github.event_name == 'push' }}
       shell: bash
       run: |
-        git diff --name-only *.{entity,} ${{github.event.pull_request.base.sha}} ${{ github.event.pull_request.head.sha }} | 
-        xargs xmllint --noout
+        git diff --name-only *.{entity,} ${{github.event.pull_request.base.sha}} ${{ github.event.pull_request.head.sha }} | xargs xmllint --noout
