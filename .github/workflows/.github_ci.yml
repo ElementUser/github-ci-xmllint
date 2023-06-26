@@ -38,4 +38,4 @@ jobs:
       if: ${{ github.event_name == 'pull_request' }}
       shell: bash
       run: |
-        git diff ${{ steps.branch-name.outputs.base_ref_branch }} --name-only *.{entity,} | xargs xmllint --noout
+        git diff origin/${{ steps.branch-name.outputs.base_ref_branch }} --name-only *.{entity,} | xargs xmllint --noout
