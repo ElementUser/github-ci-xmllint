@@ -112,7 +112,7 @@
 	</modifier>
 	
 	<modifier key="Goldenveil_Midair" modpriority="90"
-		manacost="12"
+		manacost="120"
 		disabled="true"
 	>		
 	</modifier>
