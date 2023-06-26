@@ -9,7 +9,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
+    - name: Checkout branch
       uses: actions/checkout@v3
 
     - name: Install & cache packages for linting
@@ -17,8 +17,10 @@ jobs:
       with:
         packages: libxml2-utils
         version: 1.0
-
-    - name: Run xmllint on XML entity files
+    
+    # Reference: https://stackoverflow.com/a/73557633
+    - name: Run xmllint on changed XML files between main branch and Pull Request branch
       shell: bash
       run:
-        xmllint --noout xml_files/*.entity
+        git --no-pager diff --name-only *.{entity,} --diff-filter=ACMRT ${{github.event.pull_request.base.sha}} ${{ github.event.pull_request.head.sha }} | 
+        xargs xmllint --noout
