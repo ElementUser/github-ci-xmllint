@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affector
+	name="Affector_Bombardier_Ability4"
+	
+	radius="200"
+	
+	lifetime="500"
+	impactdelay="400"
+	
+	maximpactspertarget="1"
+	targetselection="all"
+	targetscheme="enemy_units"
+	destroytrees="true"
+	effecttype="Magic"
+	persist="true"
+	
+	effect="effects/bomb.effect"
+	impacteffect=""
+>
+	<onimpact>
+		<damage effecttype="Magic" amount="220,290,360" />
+	</onimpact>
+
+	<onexpired />
+
+	<modifier key="ult_boost" modpriority="100"
+		effecttype="SuperiorMagic"
+	>
+		<onimpact>
+			<damage effecttype="SuperiorMagic" amount="220,290,360" />
+		</onimpact>
+		
+		<onexpired>
+			<spawnunit name="Gadget_Bombardier_Ability4_Napalm" target="this_position" />
+		</onexpired>
+	</modifier>
+	
+	
+	<altavatar key="Hero_Bombardier.Alt2" modpriority="1"
+		effect="effects/bomb.effect"
+	>
+	</altavatar>
+	
+	<altavatar key="Hero_Bombardier.Alt4" modpriority="1"
+		effect="../alt4/ability_04/effects/bomb.effect"
+	>
+	</altavatar>
+	
+	<altavatar key="Hero_Bombardier.Alt5" modpriority="1"
+		effect="../alt5/ability_04/effects/bomb.effect"
+	>
+	<onexpired>
+		<playeffect effect="../alt5/ability_04/effects/distance_bomb.effect" source="source_entity" target="" />
+	</onexpired>
+		<modifier key="ult_boost" modpriority="100"
+			effecttype="SuperiorMagic"
+	>
+		<onimpact>
+			<damage effecttype="SuperiorMagic" amount="220,290,360" />
+		</onimpact>
+		
+		<onexpired>
+			<spawnunit name="Gadget_Bombardier_Ability4_Napalm" target="this_position" />
+			<playeffect effect="../alt5/ability_04/effects/distance_bomb.effect" source="source_entity" target="" />
+		</onexpired>
+	</modifier>
+	
+	</altavatar>
+	
+	<altavatar key="Hero_Bombardier.Alt6" modpriority="1"
+		effect="../alt6/ability_04/effects/bomb.effect"
+	>
+			<modifier key="ult_boost" modpriority="100"
+				effecttype="SuperiorMagic"
+		>
+			<onimpact>
+				<damage effecttype="SuperiorMagic" amount="220,290,360" />
+			</onimpact>
+			
+			<onexpired>
+				<spawnunit name="Gadget_Bombardier_Ability4_Napalm" target="this_position" />
+			</onexpired>
+		</modifier>
+	
+	</altavatar>
+	
+	<altavatar key="Hero_Bombardier.Alt8" modpriority="1"
+		effect="../alt8/ability_04/effects/bomb.effect"
+	/>
+	
+	<altavatar key="Hero_Bombardier.Alt9" modpriority="1"
+		effect="../alt9/ability_04/effects/bomb.effect"
+	>
+	<onexpired>
+		<playeffect effect="../alt9/ability_04/effects/distance_bomb.effect" source="source_entity" target="" />
+	</onexpired>
+		<modifier key="ult_boost" modpriority="100"
+			effecttype="SuperiorMagic"
+	>
+	<onimpact>
+		<damage effecttype="SuperiorMagic" amount="220,290,360" />
+	</onimpact>
+		
+	<onexpired>
+		<spawnunit name="Gadget_Bombardier_Ability4_Napalm" target="this_position" />
+		<playeffect effect="../alt9/ability_04/effects/distance_bomb.effect" source="source_entity" target="" />
+	</onexpired>
+	</modifier>
+
+	</altavatar>
+	
+	<altavatar key="Hero_Bombardier.Alt10" modpriority="1"
+		effect="../alt9/ability_04/effects/bomb.effect"
+	>
+	<onexpired>
+		<playeffect effect="../alt9/ability_04/effects/distance_bomb.effect" source="source_entity" target="" />
+	</onexpired>
+		
+		<modifier key="ult_boost" modpriority="100"
+			effecttype="SuperiorMagic"
+		>
+			<onimpact>
+				<damage effecttype="SuperiorMagic" amount="220,290,360" />
+			</onimpact>
+		
+			<onexpired>
+				<spawnunit name="Gadget_Bombardier_Ability4_Napalm" target="this_position" />
+				<playeffect effect="../alt9/ability_04/effects/distance_bomb.effect" source="source_entity" target="" />
+			</onexpired>
+		</modifier>
+	</altavatar>
+	
+	<altavatar key="Hero_Bombardier.Alt11" modpriority="1"
+		effect="../alt11/ability_04/effects/bomb.effect"
+	/>	
+	
+	<altavatar key="Hero_Bombardier.Alt12" modpriority="1"
+		effect="../alt12/ability_04/effects/bomb.effect"
+	/>
+	
+</affector>
