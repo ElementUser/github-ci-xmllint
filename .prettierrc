@@ -1,0 +1,15 @@
+{
+    "overrides": [
+        {
+            "files": "*.entity",
+            "options": { 
+              "parser": "xml",
+              "printWidth": 100,
+              "tabWidth": 4,
+              "xmlWhitespaceSensitivity": "ignore",
+              "xmlSelfClosingSpace": true,
+              "singleAttributePerLine": false
+             }
+        }
+      ]
+  }
