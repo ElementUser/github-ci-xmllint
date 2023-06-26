@@ -111,9 +111,9 @@
 		</onframe>
 	</modifier>
 	
-	<modifier key="Goldenveil_Midair" modpriority="90"
+	<modifierr key="Goldenveil_Midair" modpriority="90"
 		manacost="12"
 		disabled="true"
 	>		
-	</modifier>
+	</modifierr>
 </ability>
