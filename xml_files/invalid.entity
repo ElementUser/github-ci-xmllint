@@ -81,7 +81,7 @@
 			</targettype>
 		</onframe>
 		
-		<onimpact>
+		<onimpacta>
 			<setpos0 position="target_entity" offset="0 0 300" />	
 			<spawnprojectile name="Projectile_Goldenveil_Ability2" source="this_owner_entity" target="pos0" bind="this_owner_entity" bindstate="State_Goldenveil_Ability2_Bound" proxy="target_entity" />
 			<expirestate name="State_Goldenveil_Ability2" target="source_entity" />
@@ -95,7 +95,7 @@
 			
 			<!-- Jumping from a tree sound-->
 			<playeffect effect="effects/jump_tree_sound.effect" target="source_position" source="source_position"/>
-		</onimpact>
+		</onimpacta>
 	</modifier>
 	
 	<modifier key="Goldenveil_restrained" modpriority="100"
