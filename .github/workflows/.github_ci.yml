@@ -42,5 +42,5 @@ jobs:
       uses: creyD/prettier_action@v4.3
       with:
         dry: True
-        prettier_options: --check **/*.{entity,}
+        prettier_options: --check
         only_changed: True
