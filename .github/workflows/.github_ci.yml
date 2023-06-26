@@ -22,7 +22,6 @@ jobs:
     - name: Get branch name
       id: branch-name
       uses: tj-actions/branch-names@v7.0.1
-      
 
     - name: Install & cache packages for linting
       uses: awalsh128/cache-apt-pkgs-action@latest
@@ -37,10 +36,15 @@ jobs:
       run: |
         git diff origin/${{ steps.branch-name.outputs.base_ref_branch }} --name-only *.{entity,} | xargs xmllint --noout
 
-    # Reference: https://github.com/marketplace/actions/prettier-action
-    - name: Prettify code
-      uses: creyD/prettier_action@v4.3
+    - name: Install npm
+      uses: actions/setup-node@v3
       with:
-        dry: True
-        prettier_options: --check
-        only_changed: True
+        node-version: 18
+
+    - name: Install npm packages
+      shell: bash
+      run: npm i --save-dev prettier @prettier/plugin-xml
+
+    - name: Run Prettier
+      shell: bash
+      run: prettier --check --parser xml "*.entity"
