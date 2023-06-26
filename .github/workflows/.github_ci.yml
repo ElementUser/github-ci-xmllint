@@ -36,3 +36,11 @@ jobs:
       shell: bash
       run: |
         git diff origin/${{ steps.branch-name.outputs.base_ref_branch }} --name-only *.{entity,} | xargs xmllint --noout
+
+    # Reference: https://github.com/marketplace/actions/prettier-action
+    - name: Prettify code
+      uses: creyD/prettier_action@v4.3
+      with:
+        dry: True
+        prettier_options: --check **/*.{entity,}
+        only_changed: True
