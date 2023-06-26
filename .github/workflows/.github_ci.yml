@@ -21,6 +21,12 @@ jobs:
     - name: Dump Github Actions context info
       uses: crazy-max/ghaction-dump-context@v2
 
+    # https://github.com/marketplace/actions/branch-names
+    - name: Get branch name
+      id: branch-name
+      uses: tj-actions/branch-names@v7.0.1
+      
+
     - name: Install & cache packages for linting
       uses: awalsh128/cache-apt-pkgs-action@latest
       with:
@@ -32,10 +38,4 @@ jobs:
       if: ${{ github.event_name == 'pull_request' }}
       shell: bash
       run: |
-        git diff --name-only *.{entity,} ${{github.head_ref.sha}} ${{ github.sha }} | xargs xmllint --noout
-
-    - name: xmllint_push
-      if: ${{ github.event_name == 'push' }}
-      shell: bash
-      run: |
-        git diff --name-only *.{entity,} ${{github.event.pull_request.base.sha}} ${{ github.event.pull_request.head.sha }} | xargs xmllint --noout
+        git diff --name-only *.{entity,} ${{ steps.branch-name.outputs.current_branch }} ${{ steps.branch-name.outputs.base_ref_branch }} | xargs xmllint --noout
