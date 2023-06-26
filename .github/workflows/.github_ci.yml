@@ -19,4 +19,4 @@ jobs:
     - name: Run xmllint on XML entity files
       shell: bash
       run:
-        xmllint .xml_files/
+        xmllint xml_files/*.entity
