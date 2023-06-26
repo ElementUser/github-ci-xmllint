@@ -34,8 +34,7 @@ jobs:
         version: 1.0
     
     # Reference: https://stackoverflow.com/a/73557633
-    - name: xmllint_pull_request
-      if: ${{ github.event_name == 'pull_request' }}
+    - name: xmllint
       shell: bash
       run: |
         git diff origin/${{ steps.branch-name.outputs.base_ref_branch }} --name-only *.{entity,} | xargs xmllint --noout
