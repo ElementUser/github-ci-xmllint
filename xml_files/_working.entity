@@ -93,7 +93,7 @@
 				<applystate name="State_Goldenveil_Ability2_Stealth_Linger" target="source_entity" duration="500" />
 			</compare>
 			
-			<!-- Jumping from a tree sound-->
+			<!-- Jumping from a tree sound test -->
 			<playeffect effect="effects/jump_tree_sound.effect" target="source_position" source="source_position"/>
 		</onimpact>
 	</modifier>
@@ -112,7 +112,7 @@
 	</modifier>
 	
 	<modifier key="Goldenveil_Midair" modpriority="90"
-		manacost="12"
+		manacost="120"
 		disabled="true"
 	>		
 	</modifier>
